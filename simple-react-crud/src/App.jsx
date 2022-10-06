@@ -4,7 +4,12 @@ import React from "react";
 export default class App extends React.Component {
   state = {
     nome: "",
+    idade: 22,
+    cpf: "1258124912",
+    formacao: "Front-end Developer",
   };
+
+  props = {};
 
   //like that, i can create a function that return's a component
   createComboBox = () => {
@@ -42,6 +47,9 @@ export default class App extends React.Component {
       <>
         <input type="text" value={this.state.nome} onChange={this.changeName} />
         <h1>Olá mundo {this.state.nome}</h1>
+        <h1>{this.props.idade}</h1>
+        <h1>{this.props.cpf}</h1>
+        <h1>{this.props.formacao}</h1>
         {this.createComboBox()}
         <SelectWValues />
       </>

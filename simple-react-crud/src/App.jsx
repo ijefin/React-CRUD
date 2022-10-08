@@ -7,6 +7,7 @@ export default class App extends React.Component {
     idade: 22,
     cpf: "1258124912",
     formacao: "Front-end Developer",
+    formacao2: "Front-end Developer",
   };
 
   props = {};

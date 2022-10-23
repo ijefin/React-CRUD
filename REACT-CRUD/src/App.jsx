@@ -1,14 +1,13 @@
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
-import Home from "./views/Home";
 import "bootswatch/dist/litera/bootstrap.css";
-
+import AppRoutes from "./routes/routes";
 export default function App() {
   return (
     <>
       <Navbar />
-      <Home />
+      <AppRoutes />
     </>
   );
 }

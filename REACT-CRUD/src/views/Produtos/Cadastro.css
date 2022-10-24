@@ -1,0 +1,16 @@
+#card-cadastro {
+  border-radius: 0px;
+  border-top: none;
+}
+
+#clean {
+  margin-right: 8px;
+}
+
+.non-radius {
+  border-radius: 0px;
+}
+
+.low-radius {
+  border-radius: 2px;
+}

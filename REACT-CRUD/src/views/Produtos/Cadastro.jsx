@@ -10,6 +10,11 @@ export default class CadastroProduto extends React.Component {
     fornecedor: "",
   };
 
+  handleInput = (e) => {
+    const fieldName = e.target.name;
+    const fieldValue = e.target.value;
+  };
+
   render() {
     return (
       <>
@@ -25,6 +30,7 @@ export default class CadastroProduto extends React.Component {
                     <label>Nome: *</label>
                     <input
                       type="text"
+                      name="nome"
                       placeholder="Nome do produto"
                       className="form-control"
                       value={this.state.nome}
@@ -36,6 +42,7 @@ export default class CadastroProduto extends React.Component {
                     <label>SKU: *</label>
                     <input
                       type="text"
+                      name="sku"
                       placeholder="SKU do produto (código)"
                       className="form-control"
                       value={this.state.sku}
@@ -50,6 +57,7 @@ export default class CadastroProduto extends React.Component {
                     <label>Preço: *</label>
                     <input
                       type="number"
+                      name="preco"
                       min={0.0}
                       step="0.01"
                       placeholder="Valor do produto"
@@ -63,6 +71,7 @@ export default class CadastroProduto extends React.Component {
                     <label>Fornecedor: *</label>
                     <input
                       type="text"
+                      name="fornecedor"
                       className="form-control"
                       placeholder="Fornecedor do produto (EX: Nike)"
                       value={this.state.fornecedor}
@@ -76,6 +85,7 @@ export default class CadastroProduto extends React.Component {
                     <label>Descrição:</label>
                     <textarea
                       className="form-control"
+                      name="descricao"
                       placeholder="Descrição do produto (opcional)."
                       value={this.state.descricao}
                     ></textarea>

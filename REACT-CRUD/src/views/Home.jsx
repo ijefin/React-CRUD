@@ -1,4 +1,5 @@
 import React from "react";
+import SearchButton from "../components/Buttons/List/SearchButton";
 import NewProductButton from "../components/Buttons/NewProductButton/NewProductButton";
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
         <hr className="my-4" />
         <p className="lead">
           <NewProductButton />
+          <SearchButton />
         </p>
       </div>
     </>

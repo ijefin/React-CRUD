@@ -1,12 +1,19 @@
 import React, { Component } from "react";
+import ProdutoService from "../../../services/ProdutoServices/ProdutoServices";
 
 export default class ConsultaProdutos extends React.Component {
   state = {
     listProduct: [],
   };
 
+  constructor() {
+    super();
+    this.service = new ProdutoService();
+  }
+
   componentDidMount() {
-    console.log('Montei');
+    const produtos = this.service.listAll();
+    this.setState({ listProduct: produtos });
   }
 
   render() {
@@ -21,6 +28,7 @@ export default class ConsultaProdutos extends React.Component {
               <table className="table table-hover">
                 <thead>
                   <tr>
+                    <th>Id</th>
                     <th>Nome</th>
                     <th>Preço</th>
                     <th>SKU</th>
@@ -28,9 +36,10 @@ export default class ConsultaProdutos extends React.Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.listProduct.map((produto) => {
+                  {this.state.listProduct.map((produto, id = 0) => {
                     return (
-                      <tr>
+                      <tr key={id}>
+                        <td>{id + 1}</td>
                         <td>{produto.nome}</td>
                         <td>{produto.preco}</td>
                         <td>{produto.sku}</td>

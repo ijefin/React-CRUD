@@ -21,6 +21,11 @@ export default class ProdutoService {
     localStorage.setItem(PRODUTOS, JSON.stringify(produtos));
   };
 
+  listAll = () => {
+    const product = localStorage.getItem(PRODUTOS);
+    return JSON.parse(product);
+  };
+
   validateFields = (product) => {
     const errors = [];
 
@@ -28,7 +33,7 @@ export default class ProdutoService {
       errors.push("O compo NOME é obrigatório e não pode ser vazio");
     }
 
-    if (!product.preco || product.preco < 1 ) {
+    if (!product.preco || product.preco < 1) {
       errors.push("O campo PREÇO é obrigatório e deve ser maior que 0");
     }
 

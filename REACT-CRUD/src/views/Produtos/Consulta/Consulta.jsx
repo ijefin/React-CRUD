@@ -6,7 +6,7 @@ export default class ConsultaProdutos extends React.Component {
   };
 
   componentDidMount() {
-    
+    console.log('Montei');
   }
 
   render() {

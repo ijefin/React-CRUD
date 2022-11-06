@@ -1,8 +1,8 @@
 import React from "react";
-import "./Cadastro.css";
+import "../Cadastro/Cadastro.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ProdutoService from "../../services/ProdutoServices/ProdutoServices";
+import ProdutoService from "../../../services/ProdutoServices/ProdutoServices";
 
 const initialState = {
   nome: "",
@@ -10,6 +10,7 @@ const initialState = {
   descricao: "",
   preco: 0,
   fornecedor: "",
+  errors: [],
 };
 
 export default class CadastroProduto extends React.Component {
@@ -35,10 +36,14 @@ export default class CadastroProduto extends React.Component {
       fornecedor: this.state.fornecedor,
     };
 
-    this.service.save(product);
-    this.handleClearButton();
-    toast.success("Salvo com sucesso!");
-    console.log(this.state);
+    try {
+      this.service.save(product);
+      this.handleClearButton();
+      toast.success("Salvo com sucesso!");
+    } catch (erro) {
+      const errors = erro.errors;
+      this.setState({ errors: errors });
+    }
   };
 
   handleClearButton = () => {
@@ -54,6 +59,18 @@ export default class CadastroProduto extends React.Component {
               <h3>Cadastrar novo produto</h3>
             </div>
             <div className="card-body">
+              {this.state.errors.length > 0 &&
+                this.state.errors.map((msg) => (
+                  <div className="alert alert-dismissible alert-danger">
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="alert"
+                    ></button>
+                    <strong>Erro! </strong>
+                    {msg}!
+                  </div>
+                ))}
               <div className="row">
                 <div className="col-sm">
                   <div className="form-group pb-3">
@@ -82,7 +99,6 @@ export default class CadastroProduto extends React.Component {
                   </div>
                 </div>
               </div>
-
               <div className="row">
                 <div className="col-sm">
                   <div className="form-group pb-3">

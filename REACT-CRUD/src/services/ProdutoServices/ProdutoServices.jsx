@@ -2,6 +2,7 @@ const PRODUTOS = "_PRODUTOS";
 
 export function validationError(errors) {
   this.errors = errors;
+  return;
 }
 
 export default class ProdutoService {

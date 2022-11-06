@@ -7,13 +7,11 @@ import ConsultaProdutos from "../views/Produtos/Consulta/Consulta";
 
 const AppRoutes = () => {
   return (
-    <Router>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/cadastro-produto" element={<CadastroProduto />} />
         <Route exact path="/consulta-produto" element={<ConsultaProdutos />} />
       </Routes>
-    </Router>
   );
 };
 

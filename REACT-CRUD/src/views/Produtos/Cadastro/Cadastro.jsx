@@ -44,6 +44,7 @@ export default class CadastroProduto extends React.Component {
       const errors = erro.errors;
       this.setState({ errors: errors });
     }
+    return;
   };
 
   handleClearButton = () => {

@@ -1,15 +1,16 @@
 import React from "react";
 import "./Navbar.css";
 import LogoutButton from "../Buttons/LogoutButton/LogoutButton";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             <h1>Produtos</h1>
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -25,21 +26,21 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarColor01">
             <ul className="navbar-nav me-auto">
               <li className="nav-item">
-                <a className="nav-link active" href="#">
+                <Link to="/" className="nav-link active" href="#">
                   Home
                   <span className="visually-hidden">(current)</span>
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link to="/cadastro-produto" className="nav-link" href="#">
                   Cadastro
-                </a>
+                </Link>
               </li>
               <div className="align-mobile-logout">
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <Link to="/consulta-produto" className="nav-link" href="#">
                     Consulta
-                  </a>
+                  </Link>
                 </li>
               </div>
             </ul>

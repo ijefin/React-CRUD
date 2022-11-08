@@ -16,6 +16,10 @@ export default class ConsultaProdutos extends React.Component {
     this.setState({ listProduct: produtos });
   }
 
+  showProductSku(sku) {
+    console.log(`O SKU do elemento clicado é: ${sku}`);
+  }
+
   render() {
     return (
       <>
@@ -38,7 +42,10 @@ export default class ConsultaProdutos extends React.Component {
                 <tbody>
                   {this.state.listProduct.map((produto, id = 0) => {
                     return (
-                      <tr key={id}>
+                      <tr
+                        key={id}
+                        onClick={() => this.showProductSku(produto.sku)}
+                      >
                         <td>{id + 1}</td>
                         <td>{produto.nome}</td>
                         <td>{produto.preco}</td>

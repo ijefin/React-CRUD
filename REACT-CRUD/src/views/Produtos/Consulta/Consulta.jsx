@@ -37,6 +37,7 @@ export default class ConsultaProdutos extends React.Component {
                     <th>Preço</th>
                     <th>SKU</th>
                     <th>Fornecedor</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -44,13 +45,21 @@ export default class ConsultaProdutos extends React.Component {
                     return (
                       <tr
                         key={id}
-                        onClick={() => this.showProductSku(produto.sku)}
+                        onDoubleClick={() => this.showProductSku(produto.sku)}
                       >
-                        <td>{id + 1}</td>
-                        <td>{produto.nome}</td>
-                        <td>{produto.preco}</td>
-                        <td>{produto.sku}</td>
-                        <td>{produto.fornecedor}</td>
+                        <th>{id + 1}</th>
+                        <th>{produto.nome}</th>
+                        <th>{produto.preco}</th>
+                        <th>{produto.sku}</th>
+                        <th>{produto.fornecedor}</th>
+                        <td>
+                          <button className="btn btn-primary m-1 rounded-0">
+                            Editar
+                          </button>
+                          <button className="btn btn-danger m-1 rounded-0">
+                            Excluir
+                          </button>
+                        </td>
                       </tr>
                     );
                   })}
